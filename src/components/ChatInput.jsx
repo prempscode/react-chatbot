@@ -1,8 +1,12 @@
-
-import {useState} from 'react';
-import {Chatbot} from 'supersimpledev';
-import './ChatInput.css';
-export function ChatInput({ chatMessages, setChatMessages, setIsLoading, isLoading }) {
+import { useState } from "react";
+import { Chatbot } from "supersimpledev";
+import "./ChatInput.css";
+export function ChatInput({
+  chatMessages,
+  setChatMessages,
+  setIsLoading,
+  isLoading,
+}) {
   const [inputText, setInputText] = useState("");
 
   function saveInputText() {
@@ -27,7 +31,6 @@ export function ChatInput({ chatMessages, setChatMessages, setIsLoading, isLoadi
     setInputText("");
 
     setIsLoading(true);
-    // robot response
     const response = await Chatbot.getResponseAsync(inputText);
 
     setIsLoading(false);
@@ -40,7 +43,7 @@ export function ChatInput({ chatMessages, setChatMessages, setIsLoading, isLoadi
       },
     ]);
   }
-  // solution of 3i and 3j (onKeyDown={})
+
   return (
     <div className="chat-input-container">
       <input
